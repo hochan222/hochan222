@@ -4,8 +4,6 @@
 
 ![Hochan's github stats](https://github-readme-stats.vercel.app/api?username=hochan222&show_icons=true)
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=hochan222)](https://github.com/anuraghazra/github-readme-stats)
-
 [![solved.ac tier](http://mazassumnida.wtf/api/generate_badge?boj=egas)](https://solved.ac/egas)
 
 <!--
