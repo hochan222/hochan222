@@ -6,6 +6,8 @@
 
 [![solved.ac tier](http://mazassumnida.wtf/api/generate_badge?boj=egas)](https://solved.ac/egas)
 
+⚡ Fun fact: CEF
+
 <!--
 **hochan222/hochan222** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
