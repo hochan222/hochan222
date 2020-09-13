@@ -2,11 +2,9 @@
 
 [![stackoverflow](https://img.shields.io/badge/StackOverFlow-black?logo=stackoverflow)](https://stackoverflow.com/users/9591511/hochan)
 
-![Hochan's github stats](https://github-readme-stats.vercel.app/api?username=hochan222&show_icons=true)
-
 [![solved.ac tier](http://mazassumnida.wtf/api/generate_badge?boj=egas)](https://solved.ac/egas)
 
-⚡ Fun fact: CEF
+![Hochan's github stats](https://github-readme-stats.vercel.app/api?username=hochan222&show_icons=true)
 
 <!--
 **hochan222/hochan222** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
