@@ -8,9 +8,23 @@
 - 1 Day 1 Conference  
 - 1 Day 1 Medium Mail 
 
+<details>
+<summary>solved.ac</summary>
+<div markdown="1">
+
 [![solved.ac tier](http://mazassumnida.wtf/api/generate_badge?boj=egas)](https://solved.ac/egas)
 
+</div>
+</details>
+
+<details>
+<summary>github stats</summary>
+<div markdown="1">
+
 ![Hochan's github stats](https://github-readme-stats.vercel.app/api?username=hochan222&show_icons=true)
+
+</div>
+</details>
 
 <!--
 **hochan222/hochan222** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
