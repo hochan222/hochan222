@@ -2,7 +2,7 @@
 
 [![stackoverflow](https://img.shields.io/badge/StackOverFlow-black?logo=stackoverflow)](https://stackoverflow.com/users/9591511/hochan)
 
-![egas](https://github.com/hochan222/hochan222/blob/master/Egas.gif)  
+![egas](https://github.com/hochan222/hochan222/blob/master/Egas_x2.gif)
 
 #### ✨목표  
 
