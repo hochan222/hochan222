@@ -1,4 +1,4 @@
-### Hochan's Github ![egas](https://github.com/hochan222/hochan222/blob/master/Egas_b.gif) 👋     d
+### Hochan's Github ![egas](https://github.com/hochan222/hochan222/blob/master/Egas_b.gif) 👋  
 
 [![stackoverflow](https://img.shields.io/badge/StackOverFlow-black?logo=stackoverflow)](https://stackoverflow.com/users/9591511/hochan)
 [![gist](https://img.shields.io/badge/Gist-black?logo=github)](https://gist.github.com/hochan222)
