@@ -12,8 +12,8 @@
 
 #### ✨목표  
 
-- 1 Day 5 Question  
-- 1 Day 1 Conference  
+- 1 Week 5 Question  
+- 1 Week 1 Conference  
 - 1 Day 1 Medium Mail 
 
 <details>
