@@ -6,6 +6,10 @@
 [![Gmail Badge](https://img.shields.io/badge/Gmail-d14836?style=flat-square&logo=Gmail&logoColor=white&link=mailto:hochan049@gmail.com)](mailto:hochan049@gmail.com)
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fhochan222%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)  
 
+<img src="https://user-images.githubusercontent.com/22424891/113963820-44e66200-9865-11eb-8892-557ceb8eab06.png" height="250px" />
+
+<!-- https://ko.wikiqube.net/wiki/Punched_card#IBM_80-column_format_and_character_codes -->
+
 #### ✨목표  
 
 - 1 Day 5 Question  
