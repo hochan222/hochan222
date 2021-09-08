@@ -18,6 +18,15 @@
 - 1 Day 1 Medium Mail 
 
 <details>
+<summary>JS Piscine</summary>
+<div markdown="1">
+
+<img src="https://42js.vercel.app/api/v1/certificate/js-piscine-beta/staff/holee" height="300px" />
+
+</div>
+</details>
+
+<details>
 <summary>solved.ac</summary>
 <div markdown="1">
 
@@ -31,15 +40,6 @@
 <div markdown="1">
 
 ![Hochan's github stats](https://github-readme-stats.vercel.app/api?username=hochan222&show_icons=true)
-
-</div>
-</details>
-
-<details>
-<summary>JS Piscine</summary>
-<div markdown="1">
-
-<img src="https://42js.vercel.app/api/v1/certificate/js-piscine-beta/staff/holee" height="300px" />
 
 </div>
 </details>
