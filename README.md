@@ -35,6 +35,15 @@
 </div>
 </details>
 
+<details>
+<summary>JS Piscine</summary>
+<div markdown="1">
+
+<img src="https://42js.vercel.app/api/v1/certificate/js-piscine-beta/staff/holee" height="300px" />
+
+</div>
+</details>
+
 <!--
 **hochan222/hochan222** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
