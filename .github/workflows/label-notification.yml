@@ -13,16 +13,15 @@ jobs:
       id: trim_body
       run: |
         echo "${{ github.event.issue.body }}" | head -n 3 > trimmed_body.txt
-
-    - name: Read trimmed body
-      id: read_body
-      run: |
-        trimmed_body=$(cat trimmed_body.txt)
-        echo "::set-output name=body::$trimmed_body"
+        echo "TRIMMED_BODY<<EOF" >> $GITHUB_ENV
+        while IFS= read -r line; do
+          echo "$line" >> $GITHUB_ENV
+        done < trimmed_body.txt
+        echo "EOF" >> $GITHUB_ENV
 
     - name: Send Discord Notification
       if: contains(github.event.issue.labels.*.name, 'ko-locale')
       env:
-        TRIMMED_BODY: ${{ steps.read_body.outputs.body }}
+        TRIMMED_BODY: ${{ env.TRIMMED_BODY }}
       run: |
         echo "'"${TRIMMED_BODY}"'"
