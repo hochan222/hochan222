@@ -24,4 +24,23 @@ jobs:
       env:
         TRIMMED_BODY: ${{ env.TRIMMED_BODY }}
       run: |
-        echo "'"${TRIMMED_BODY}"'"
+        curl -X POST -H 'Content-Type: application/json' \
+        -d '{
+          "content": "",
+          "embeds": [
+            {
+              "author": {
+                "name": "KO ISSUE NOTIFICATION",
+                "icon_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+              },
+              "title": "${{ github.event.issue.title }}",
+              "url": "${{ github.event.issue.html_url }}",
+              "description": "'"${TRIMMED_BODY}"'",
+              "footer": {
+                "text": "Created at",
+              },
+              "timestamp": "${{ github.event.issue.created_at }}"
+            }
+          ]
+        }' \
+        ${{ secrets.DISCORD_INTERNATIONAL_KOREAN_WEBHOOK_URL }}
