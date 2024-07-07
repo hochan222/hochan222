@@ -9,7 +9,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check for specific label
-      if: contains(github.event.issue.labels.*.name, 'ko-locale')
+    - name: Trim issue body to 3 lines
+      id: trim_body
       run: |
-        echo "hi"
+        echo "${{ github.event.issue.body }}" | head -n 3 > trimmed_body.txt
+
+    - name: Read trimmed body
+      id: read_body
+      run: |
+        trimmed_body=$(cat trimmed_body.txt)
+        echo "::set-output name=body::$trimmed_body"
+
+    - name: Send Discord Notification
+      if: contains(github.event.issue.labels.*.name, 'ko-locale')
+      env:
+        TRIMMED_BODY: ${{ steps.read_body.outputs.body }}
+      run: |
+        echo "'"${TRIMMED_BODY}"'"
