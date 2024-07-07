@@ -1,0 +1,15 @@
+name: Label Notification
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  send_notification:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check for specific label
+      if: contains(github.event.issue.labels.*.name, 'ko-locale')
+      run: |
+        echo "hi"
