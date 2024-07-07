@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Check for specific label
+      if: contains(github.event.issue.labels.*.name, 'ko-locale')
+      run: echo "Label matched, sending notification to Discord..."
+
     - name: Trim issue body to 3 lines
       id: trim_body
       run: |
@@ -24,23 +28,29 @@ jobs:
       env:
         TRIMMED_BODY: ${{ env.TRIMMED_BODY }}
       run: |
-        curl -X POST -H 'Content-Type: application/json' \
-        -d '{
-          "content": "",
-          "embeds": [
-            {
-              "author": {
-                "name": "KO ISSUE NOTIFICATION",
-                "icon_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-              },
-              "title": "${{ github.event.issue.title }}",
-              "url": "${{ github.event.issue.html_url }}",
-              "description": "'"${TRIMMED_BODY}"'",
-              "footer": {
-                "text": "Created at"
-              },
-              "timestamp": "${{ github.event.issue.created_at }}"
-            }
-          ]
-        }' \
-        ${{ secrets.DISCORD_INTERNATIONAL_KOREAN_WEBHOOK_URL }}
+        trimmed_body=$(cat trimmed_body.txt)
+        payload=$(jq -n --arg title "${{ github.event.issue.title }}" \
+                        --arg url "${{ github.event.issue.html_url }}" \
+                        --arg body "$trimmed_body" \
+                        --arg timestamp "${{ github.event.issue.created_at }}" \
+                        '{
+                          "content": "",
+                          "embeds": [
+                            {
+                              "author": {
+                                "name": "KO ISSUE NOTIFICATION",
+                                "icon_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                              },
+                              "title": $title,
+                              "url": $url,
+                              "description": $body,
+                              "footer": {
+                                "text": "Created at"
+                              },
+                              "timestamp": $timestamp
+                            }
+                          ]
+                        }')
+        curl -X POST -H "Content-Type: application/json" \
+             -d "$payload" \
+             ${{ secrets.DISCORD_INTERNATIONAL_KOREAN_WEBHOOK_URL }}
