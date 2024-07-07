@@ -37,7 +37,7 @@ jobs:
               "url": "${{ github.event.issue.html_url }}",
               "description": "'"${TRIMMED_BODY}"'",
               "footer": {
-                "text": "Created at",
+                "text": "Created at"
               },
               "timestamp": "${{ github.event.issue.created_at }}"
             }
