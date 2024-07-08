@@ -9,8 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Install mailutils
-      run: sudo apt-get install -y mailutils
     - name: Trim issue body to 3 lines
       id: trim_body
       run: |
@@ -21,10 +19,9 @@ jobs:
         done < trimmed_body.txt
         echo "EOF" >> $GITHUB_ENV
     - name: Send Email Notification
-      if: contains(github.event.issue.labels.*.name, 'l10n-ko')
       env:
         TRIMMED_BODY: ${{ env.TRIMMED_BODY }}
       run: |
         trimmed_body=$(cat trimmed_body.txt)
         echo -e "To: hochan049@gmail.com\nFrom: no-reply@example.com\nSubject: KO ISSUE NOTIFICATION: ${{ github.event.issue.title }}\n\nIssue URL: ${{ github.event.issue.html_url }}\n\nDescription:\n$trimmed_body" > email.txt
-        cat email.txt | /usr/bin/mailx -t
+        cat email.txt | /usr/sbin/sendmail -t
