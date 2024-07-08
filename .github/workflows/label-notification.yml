@@ -9,10 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check for specific label
-      if: contains(github.event.issue.labels.*.name, 'ko-locale')
-      run: echo "Label matched, sending notification to Discord..."
-
     - name: Trim issue body to 3 lines
       id: trim_body
       run: |
@@ -22,35 +18,11 @@ jobs:
           echo "$line" >> $GITHUB_ENV
         done < trimmed_body.txt
         echo "EOF" >> $GITHUB_ENV
-
-    - name: Send Discord Notification
-      if: contains(github.event.issue.labels.*.name, 'ko-locale')
+    - name: Send Email Notification
+      if: contains(github.event.issue.labels.*.name, 'l10n-ko')
       env:
         TRIMMED_BODY: ${{ env.TRIMMED_BODY }}
       run: |
         trimmed_body=$(cat trimmed_body.txt)
-        payload=$(jq -n --arg title "${{ github.event.issue.title }}" \
-                        --arg url "${{ github.event.issue.html_url }}" \
-                        --arg body "$trimmed_body" \
-                        --arg timestamp "${{ github.event.issue.created_at }}" \
-                        '{
-                          "content": "",
-                          "embeds": [
-                            {
-                              "author": {
-                                "name": "KO ISSUE NOTIFICATION",
-                                "icon_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-                              },
-                              "title": $title,
-                              "url": $url,
-                              "description": $body,
-                              "footer": {
-                                "text": "Created at"
-                              },
-                              "timestamp": $timestamp
-                            }
-                          ]
-                        }')
-        curl -X POST -H "Content-Type: application/json" \
-             -d "$payload" \
-             ${{ secrets.DISCORD_INTERNATIONAL_KOREAN_WEBHOOK_URL }}
+        echo -e "Subject: KO ISSUE NOTIFICATION: ${{ github.event.issue.title }}\nTo: yari-content-ko@googlegroups.com\nContent-Type: text/plain; charset=UTF-8\n\nIssue URL: ${{ github.event.issue.html_url }}\n\nDescription:\n$trimmed_body" > email.txt
+        sendmail hochan049@gmail.com < email.txt
