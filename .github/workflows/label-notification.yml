@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Install mailutils
+      run: sudo apt-get install -y mailutils
     - name: Trim issue body to 3 lines
       id: trim_body
       run: |
@@ -24,4 +26,4 @@ jobs:
       run: |
         trimmed_body=$(cat trimmed_body.txt)
         echo -e "To: hochan049@gmail.com\nFrom: no-reply@example.com\nSubject: KO ISSUE NOTIFICATION: ${{ github.event.issue.title }}\n\nIssue URL: ${{ github.event.issue.html_url }}\n\nDescription:\n$trimmed_body" > email.txt
-        cat email.txt | /usr/sbin/sendmail -t
+        cat email.txt | /usr/bin/mail -s "KO ISSUE NOTIFICATION: ${{ github.event.issue.title }}" hochan049@gmail.com
